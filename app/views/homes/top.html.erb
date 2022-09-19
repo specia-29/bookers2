@@ -1,1 +1,25 @@
-トップページ
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v6.2.0/css/all.css" rel="stylesheet">
+
+<main>
+    <p id="notice"></p>
+        <div class="container-top">
+          <div class="row-top">
+            <div class="sentence-top">
+              <h1>welcome to <i class="fas fa-book"></i><strong>Bookers</strong>  !!</h1>
+              <p class="sentence">In  <i class="fas fa-book"></i><strong class="sub-title">Bookers</strong>,<br>
+                 you can share and exchange  your opinions , inpressions , and emotions<br>
+                 about various books!</p>
+              <div class="btn-wrapper-top">
+                <div class="row-toplink log-in">
+                  <%= link_to 'Log in', new_user_session_path, class: 'log-in' %>
+                </div>
+                <div class="row-toplink sign-up">
+                  <%= link_to 'Sign up', new_user_registration_path, class: 'sign-up' %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+</main>

@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
+    devise_scope :user do
+    get "/sign_in" => "devise/sessions#new" # login/sign_inへのカスタムパス
+    get "/sign_up" => "devise/registrations#new", as: "new_user_registration" # sign_up/registrationへのカスタムパス
+  end
+
   devise_for :users
   root to: 'homes#top'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get 'books' => 'books#index'
+  get 'home/about' => 'homes#about'
+
+
+  resources :books, only: [:new, :create, :index, :show]
+
+  resources :users, only: [:show, :edit, :update]
+
 end

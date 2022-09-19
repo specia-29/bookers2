@@ -13,3 +13,136 @@
  *= require_tree .
  *= require_self
  */
+
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*  box-sizing: border-box;*/
+/*}*/
+
+/*ul {*/
+/*  list-style: none;*/
+/*}*/
+
+/*header {*/
+/*  width: 100%;*/
+/*  background-color: #343A40;*/
+/*}*/
+
+/*.navbar {*/
+/*  padding: 8px 16px;*/
+/*}*/
+
+/*.navbar .container {*/
+/*  display: flex;*/
+/*  padding: 0px 16px;*/
+/*}*/
+
+/*.navbar-brand {*/
+/*  color: #fff;*/
+/*  font-size: 20px;*/
+/*  top: 0;*/
+/*  bottom: 0;*/
+/*  margin: 0px 16px 0px 0px;*/
+/*  padding: 5px 0px;*/
+/*}*/
+
+/*.navbar-brand span {*/
+/*  font-size: 20px;*/
+/*}*/
+
+/*.collapse {*/
+/*  margin-right: 0px;*/
+/*  margin-left: auto;*/
+/*}*/
+
+/*.navbar-nav {*/
+/*  display: flex;*/
+/*}*/
+
+/*.nav-item {*/
+/*  padding: 8px;*/
+/*  color: #fff;*/
+
+/*}*/
+
+/*.nav-link {*/
+/*  color: #F8F9FA;*/
+/*}*/
+
+/*a {*/
+/*  text-decoration: none;*/
+/*}*/
+
+/*main {*/
+/*  width: 100%;*/
+/*  margin-top: 20px;*/
+/*  margin-bottom: 30px;*/
+/*}*/
+
+/*main strong {*/
+/*  font-size: 40px;*/
+/*  color: #212529;*/
+/*}*/
+
+
+/*main .mx-auto col-11 col-sm-10 col-lg-8 col-xl-6 {*/
+/*  width: 600px;*/
+/*}*/
+
+/*main .sub-title {*/
+/*  font-size: 16px;*/
+/*}*/
+
+/*main .container-top {*/
+/*  text-align: center;*/
+/*}*/
+
+/*main .row-top {*/
+/*  width: 100%;*/
+/*  margin:0 auto;*/
+/*}*/
+
+/*main .sentence {*/
+/*  display: inline-block;*/
+/*  text-align: left;*/
+/*  line-height: 40px;*/
+/*}*/
+
+/*.btn-wrapper-top {*/
+/*  text-align: center;*/
+/*}*/
+
+/*.row-toplink {*/
+/*  height: 31px;*/
+/*}*/
+
+/*.row-toplink {*/
+/*    width: 450px;*/
+/*    padding: 4px 8px;*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*    margin-bottom: 16px;*/
+/*    font-weight: bold;*/
+/*    border: solid 3px #6091d3;*/
+/*    border-radius: 3px;*/
+/*    background: #17A2B8;*/
+/*    color: #FFF*/
+/*}*/
+
+/*.log-in {*/
+/*  color: #FFF;*/
+/*}*/
+
+/*.sign-up {*/
+/*  color: #FFF;*/
+/*}*/
+
+/*.mx-auto {*/
+/*  text-align: center;*/
+/*}*/
+
+/*footer p {*/
+/*  font-size: 16px;*/
+/*  margin-bottom: 16px;*/
+/*}*/
