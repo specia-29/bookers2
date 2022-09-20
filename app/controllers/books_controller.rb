@@ -1,7 +1,13 @@
 class BooksController < ApplicationController
 
-  def new
+  def index
+    @user = current_user
     @book = Book.new
+    @books = Book.all
+  end
+
+
+  def show
   end
 
   def create
@@ -11,12 +17,6 @@ class BooksController < ApplicationController
     redirect_to books_path
   end
 
-  def index
-  end
-
-
-  def show
-  end
 
   private
 

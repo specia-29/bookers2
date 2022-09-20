@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'books' => 'books#index'
   get 'home/about' => 'homes#about'
+  post 'books' => 'books#create'
 
 
   resources :books, only: [:new, :create, :index, :show]
