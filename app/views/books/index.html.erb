@@ -6,16 +6,14 @@
         <h2>User info</h2>
         <thead>
           <tr>
-            <%#= attachment_image_tag @user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg"%>
+              <%# if list.image.attached? %>
+                <%#= image_tag list.image, size: "200x200" %>
+              <%# else %>
+                <%#= image_tag 'no_image', size: "200x200" %>
+              <%# end %>
           </tr>
         </thead>
         <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBem9GQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--beb0fcd731bbacf67b82008f6a333816ed1660a3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"><table class="table">
-
-        <!--<h5>name</h5>-->
-        <!--<%#= @user.name %>-->
-        <!--<h5>introduction</h5>-->
-        <%#= @user.introduction %>
-
           <tbody><tr></tr>
             <tr>
           	  <th>name</th>
@@ -28,23 +26,9 @@
           </tbody></table>
 
           <div class="row">
-            <%#= link_to"",edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block"%>
             <a class="btn btn-outline-secondary btn-block edit_user_46680" href="/users/46680/edit">
             <i class="fas fa-user-cog"></i>
           </a>
-
-          <!--<h1>New book</h1>-->
-          <!-- form_with部分 -->
-          <!--<%#= form_with model: @book do |f| %>-->
-          <!--  <h4>Title</h4>-->
-          <!--  <%#= f.text_field :title %>-->
-
-          <!--  <h4>Opinion</h4>-->
-          <!--  <%#= f.text_area :body %>-->
-
-          <!--  <%#= f.submit 'Create Book' %>-->
-          <!--<%# end %>-->
-
           </div>
                 <h2 class="mt-3">New book</h2>
                 <form action="/books" accept-charset="UTF-8" method="post"><input type="hidden" name="authenticity_token" value="aHp-DMdTLG0GzHOstlogFQ4P6RpAyWP9ETWQzVgqPQ-RPKK3bmGX7aH-IhrXutLT35kUrXeoC3MrlGnREX_FWA" autocomplete="off">
