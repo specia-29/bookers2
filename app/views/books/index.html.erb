@@ -4,30 +4,29 @@
     <div class="row">
       <div class="col-md-3">
         <h2>User info</h2>
-        <thead>
-          <tr>
-              <%# if list.image.attached? %>
-                <%#= image_tag list.image, size: "200x200" %>
-              <%# else %>
-                <%#= image_tag 'no_image', size: "200x200" %>
-              <%# end %>
-          </tr>
-        </thead>
-        <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBem9GQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--beb0fcd731bbacf67b82008f6a333816ed1660a3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"><table class="table">
-          <tbody><tr></tr>
+        <%= image_tag @user.get_profile_image(100, 100) %>
+        <table class="table">
+          <table class="table">
+            <tbody><tr></tr>
             <tr>
           	  <th>name</th>
-          	  <th>kyon</th>
+          	  <th>
+          	    <%= @user.name %>
+          	  </th>
             </tr>
             <tr>
           	  <th>introduction</th>
-          	  <th></th>
+          	  <th>
+          	    <%#= @user.introduction %>
+          	  </th>
             </tr>
           </tbody></table>
 
           <div class="row">
-            <a class="btn btn-outline-secondary btn-block edit_user_46680" href="/users/46680/edit">
+            <!--<a class="btn btn-outline-secondary btn-block">-->
+            <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-cog"></i>
+            <% end %>
           </a>
           </div>
                 <h2 class="mt-3">New book</h2>

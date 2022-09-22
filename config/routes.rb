@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post 'books' => 'books#create'
 
 
-  resources :books, only: [:new, :create, :index, :show]
+  resources :books, only: [:create, :index, :show]
 
   resources :users, only: [:show, :edit, :update]
 
