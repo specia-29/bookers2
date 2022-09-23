@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   devise_for :users
   root to: 'homes#top'
-  get 'books' => 'books#index'
   get 'home/about' => 'homes#about'
   post 'books' => 'books#create'
 
