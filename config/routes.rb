@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   post 'books' => 'books#create'
+  get '/users/:id', to: 'users#show'
+  get '/books/:id', to: 'books#show'
+  get '/books/:id/edit', to: 'books#edit'
 
 
-  resources :books, only: [:create, :index, :show]
+  resources :books, only: [:create, :index, :show, :edit]
 
   resources :users, only: [:show, :edit, :update]
 

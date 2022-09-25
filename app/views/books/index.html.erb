@@ -17,7 +17,7 @@
             <tr>
           	  <th>introduction</th>
           	  <th>
-          	    <%#= @user.introduction %>
+          	    <%= @user.introduction %>
           	  </th>
             </tr>
           </tbody></table>
@@ -29,7 +29,7 @@
           </a>
           </div>
 
-        <%= form_with model:@book do |f| %>
+        <%= form_with(model: @book, local: true) do |f| %>
         <h2 class="mt-3">New book</h2>
             <div class="form-group">
               <label for="book_title">Title</label>
@@ -61,13 +61,20 @@
 
           <tbody>
             <tr>
-              <td><a href="/users/48376">
-                <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBd0VaQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--a49dd8c3591dca37f9a62fb598f3062d98de64e3/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"><br>kyon</a>
+              <td>
+                <%= link_to user_path(@user.id) do %>
+                <%= image_tag @user.get_profile_image(100, 100) %><br>
+                <%= @user.name %>
               </td>
-              <td><a href="/books/36072">a</a></td>
-              <td>aaa</td>
+              <%= link_to book_path(@user.id) do %>
+              <td><%= @book_title %></td>
+              <% end %>
+              <td><%= @book_body %></td>
+              <%#= link_to "Edit", edit_book_path, class: "btn btn-sm btn-success" do %>
               <td><a class="btn btn-sm btn-success edit_book_36072" href="/books/36072/edit">Edit</a></td>
+              <%# end %>
               <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_36072" rel="nofollow" data-method="delete" href="/books/36072">Destroy</a></td>
+              <% end %>
             </tr>
           </tbody>
           </table>
