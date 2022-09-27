@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   get '/books/:id', to: 'books#show'
   get '/books/:id/edit', to: 'books#edit'
+  patch 'books/:id' => 'books#update', as: 'update_book'
 
 
   resources :books, only: [:create, :index, :show, :edit]
