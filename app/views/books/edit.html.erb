@@ -18,7 +18,7 @@
               <%= f.submit 'Update Book', class: "btn btn-success" %>
             </div>
           </form>
-          <td><%#= link_to "Show", "/books/#{@book.id}" %></td> |
+          <td><%= link_to "Show", book_path(book.id) %></td> |
           <td><%= link_to "Back", "/books" %></td>
           <% end %>
       </div>

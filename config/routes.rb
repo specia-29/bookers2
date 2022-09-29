@@ -7,17 +7,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
-  post 'books' => 'books#create'
-  get 'books' => 'books#index'
-  get 'users' => 'users#index'
-  get '/users/:id', to: 'users#show'
-  get '/books/:id', to: 'books#show'
-  get '/books/:id/edit', to: 'books#edit'
-  patch 'books/:id' => 'books#update', as: 'update_book'
 
+  resources :books
 
-  resources :books, only: [:create, :index, :show, :edit]
-
-  resources :users, only: [:show, :edit, :update]
+  resources :users
 
 end
