@@ -71,11 +71,11 @@
               <td><%= @book_title %></td>
               <td><%= @book_body %></td>
                 <% end %>
-              <%= link_to edit_book_path(@book), class: "btn btn-sm btn-success" do %>
-              Edit
-              <!--<td><a class="btn btn-sm btn-success edit_book_{#book.id}" href="/books/{#book.id}/edit">Edit</a></td>-->
+              <td><%= link_to edit_book_path(@books), class: "btn btn-sm btn-success" do %> Edit</td>
               <% end %>
-              <td><a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_{#book.id}" rel="nofollow" data-method="delete" href="/books/{#book.id}">Destroy</a></td>
+              <td><%= link_to destroy_book_path(@books), method: :delete, class:  "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" do %> Destroy</td>
+              <% end %>
+              <!--<a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_{#book.id}" rel="nofollow" data-method="delete" href="/books/{#book.id}">Destroy</a>-->
             </tr>
           </tbody>
           </table>
