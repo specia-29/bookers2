@@ -1,5 +1,4 @@
 <main>
-  <p id="notice">Welcome! You have signed up successfully.</p>
   <div class="container px-5 px-sm-0">
     <div class="row">
       <div class="col-md-3">
@@ -26,10 +25,9 @@
             <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-cog"></i>
             <% end %>
-          </a>
           </div>
 
-        <%= form_with(model: @book0, local: true) do |f| %>
+        <%= form_with(model: @book, local: true) do |f| %>
         <h2 class="mt-3">New book</h2>
             <div class="form-group">
               <label for="book_title">Title</label>
@@ -59,27 +57,23 @@
               </tr>
             </thead>
 
-          <tbody>
-            <tr>
-              <td>
-                <%= link_to user_path(@user.id) do %>
-                <%= image_tag @user.get_profile_image(100, 100) %><br>
-                <%= @user.name %>
-                <% end %>
-              </td>
-              <%= link_to book_path(@user.id) do %>
-              <td><%= @book_title %></td>
-              <td><%= @book_body %></td>
-                <% end %>
-              <td><%= link_to edit_book_path(@books), class: "btn btn-sm btn-success" do %> Edit</td>
-              <% end %>
-              <td><%= link_to destroy_book_path(@books), method: :delete, class:  "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" do %> Destroy</td>
-              <% end %>
-              <!--<a data-confirm="本当に消しますか？" class="btn btn-sm btn-danger destroy_book_{#book.id}" rel="nofollow" data-method="delete" href="/books/{#book.id}">Destroy</a>-->
-            </tr>
-          </tbody>
-          </table>
+              <tbody>
+                  <tr>
+                    <% @books.each do |book| %>
+                    <td>
+                      <%= link_to user_path(book.user.id) do %>
+                      <%= image_tag @user.get_profile_image(100, 100) %>
+                      <% end %>
+                    </td>
+                    <td><%= link_to book_path(book.user.id) do %>
+                    <%= book.title %>
+                    <% end %></td>
+                    <td><%= book.body %></td>
+                    <% end %>
+                  </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</main>
+    </main>
