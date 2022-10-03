@@ -4,21 +4,23 @@
   <div class="row">
     <div class="col-md-3">
       <h2>User info</h2>
-      <img src="https://bookers-level2.herokuapp.com/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBOG9sQWc9PSIsImV4cCI6bnVsbCwicHVyIjoiYmxvYl9pZCJ9fQ==--d9904650ec64720c2ad4791e8e4056b28f898a33/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCem9MWm05eWJXRjBTU0lJYW5CbkJqb0dSVlE2RkhKbGMybDZaVjkwYjE5c2FXMXBkRnNIYVdscGFRPT0iLCJleHAiOm51bGwsInB1ciI6InZhcmlhdGlvbiJ9fQ==--4a929dbc7794f3c4610ba9ba5402762ad9cd1a14/default-image.jpg"><table class="table">
-  <tbody><tr></tr>
-  <tr>
-	  <th>name</th>
-	  <th>
-	    <%= @user.name %>
-	  </th>
-  </tr>
-  <tr>
-	  <th>introduction</th>
-	  <th>
-	      <%= @user.introduction %>
-	  </th>
-  </tr>
-</tbody></table>
+        <%= image_tag @user.get_profile_image(100, 100) %>
+        <table class="table">
+          <table class="table">
+          <tbody><tr></tr>
+          <tr>
+        	  <th>name</th>
+        	  <th>
+        	    <%= @user.name %>
+        	  </th>
+          </tr>
+          <tr>
+        	  <th>introduction</th>
+        	  <th>
+        	      <%= @user.introduction %>
+        	  </th>
+          </tr>
+        </tbody></table>
 
           <div class="row">
             <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
