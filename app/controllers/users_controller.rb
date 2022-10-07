@@ -1,13 +1,14 @@
 class UsersController < ApplicationController
 
+  before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
   #ログインしていない状態で他のページに遷移しようとした場合、ログインページに遷移する
-  before_action :ensure_current_user, {only: [:edit,:update,:destroy]}
-  #ログインユーザー以外の人の遷移を制限
 
 
   def show
     @book = Book.new
+    # @books = Book.find(params[:id])
+    # @user = @books.user
     @user = User.find(params[:id])
     @books = @user.books.all
   end
@@ -53,11 +54,10 @@ class UsersController < ApplicationController
     params.require(:book).permit(:title, :body)
   end
 
-  def  ensure_current_user
-    @user = User.find(params[:id])
-    if @user.id != current_user.id
-      redirect_to user_path(current_user.id)
-    end
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
   end
 
 end

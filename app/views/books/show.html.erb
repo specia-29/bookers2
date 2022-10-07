@@ -55,7 +55,7 @@
 
 
           <div class="col-md-8 offset-md-1">
-            <h2>Books</h2>
+            <h2>Books detail</h2>
           <table class="table table-hover table-inverse">
             <thead>
               <tr>
@@ -78,10 +78,12 @@
               <%= link_to book_path(@user.id) do %>
               <td><%= @books.title %></td>
               <td><%= @books.body %></td>
-                <% end %>
+              <% end %>
+              <% if @books.user == current_user %>
               <td><%= link_to edit_book_path(@books), class: "btn btn-sm btn-success" do %> Edit</td>
               <% end %>
               <td><%= link_to destroy_book_path(@books), method: :delete, class:  "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" do %> Destroy</td>
+              <% end %>
               <% end %>
             </tr>
           </tbody>

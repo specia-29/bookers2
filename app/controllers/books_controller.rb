@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
 
+  before_action :correct_user, only: [:edit, :update]
   before_action :authenticate_user!
-  before_action :ensure_current_user, {only: [:edit,:update,:destroy]}
-  #ログインユーザー以外の人の遷移を制限
 
   def index
     @user = current_user
@@ -24,12 +23,12 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
     @book.user_id = current_user.id
+    @user = current_user
     if @book.save
       flash[:notice] = "You have creatad book successfully."
 		redirect_to book_path(@book.id)
     else
       @books = Book.all
-      flash[:notice] = ' errors prohibited this obj from being saved:'
       render "index"
     end
   end
@@ -41,7 +40,6 @@ class BooksController < ApplicationController
         redirect_to book_path(@book.id)
     else
         @books = Book.all
-         flash[:notice]= ' errors prohibited this obj from being saved:'
         render "edit"
     end
   end
@@ -63,10 +61,9 @@ class BooksController < ApplicationController
     params.require(:user).permit(:name,:profile_image,:introduction)
   end
 
-  def  ensure_current_user
-      @book = Book.find(params[:id])
-     if @book.user_id != current_user.id
-        redirect_to books_path
-     end
+  def correct_user
+    @book = Book.find(params[:id])
+    @user = @book.user
+    redirect_to(books_path) unless @user == current_user
   end
 end
