@@ -55,7 +55,7 @@
 
 
           <div class="col-md-8 offset-md-1">
-            <h2>Books detail</h2>
+            <h2>Book detail</h2>
           <table class="table table-hover table-inverse">
             <thead>
               <tr>
@@ -76,7 +76,12 @@
                 <% end %>
               </td>
               <%= link_to book_path(@user.id) do %>
-              <td><%= @books.title %></td>
+              <td>
+                <%= link_to book_path(@books.id) do %>
+                <%= @books.title %>
+                <% end %>
+              </td>
+
               <td><%= @books.body %></td>
               <% end %>
               <% if @books.user == current_user %>

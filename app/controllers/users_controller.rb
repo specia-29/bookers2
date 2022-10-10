@@ -1,14 +1,12 @@
 class UsersController < ApplicationController
 
   before_action :correct_user, only: [:edit, :update]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   #ログインしていない状態で他のページに遷移しようとした場合、ログインページに遷移する
 
 
   def show
     @book = Book.new
-    # @books = Book.find(params[:id])
-    # @user = @books.user
     @user = User.find(params[:id])
     @books = @user.books.all
   end
@@ -35,7 +33,6 @@ class UsersController < ApplicationController
       flash[:notice] = " errors prohibited this obj from being saved:"
         render :edit
     end
-
   end
 
   def index
@@ -55,9 +52,8 @@ class UsersController < ApplicationController
   end
 
   def correct_user
-    @book = Book.find(params[:id])
-    @user = @book.user
-    redirect_to(books_path) unless @user == current_user
+    @user = User.find(params[:id])
+    redirect_to user_path(current_user) unless @user == current_user
   end
 
 end

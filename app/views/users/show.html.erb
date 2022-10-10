@@ -68,16 +68,13 @@
                 <% end %>
               </td>
 
-              <%= link_to book_path(@user.id) do %>
-              <td><%= book.title %></td>
-              <td><%= book.body %></td>
-              <% end %>
 
-              <td><%= link_to edit_book_path(book.id), class: "btn btn-sm btn-success" do %> Edit</td>
-              <% end %>
-              <td><%= link_to destroy_book_path(book.id), method: :delete, class:  "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" do %> Destroy</td>
-              </tr>
-              <% end %>
+              <td>
+                <%= link_to book_path(book.id) do %>
+                <%= book.title %>
+                <% end %>
+              </td>
+              <td><%= book.body %></td>
               <% end %>
           </tbody>
           </table>
